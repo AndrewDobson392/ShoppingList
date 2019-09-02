@@ -1,0 +1,16 @@
+<ng-template #messageboxContent let-modal>
+    <div class="modal-header">
+        Message
+    </div>
+    <div class="modal-body">
+        {{messageText}}
+    </div>
+    <div class="modal-footer">    
+        <button type="button" class="btn btn-primary" *ngIf="isYesNo"  (click)="modal.close('')">
+            Yes
+        </button>
+        <button type="button" class="btn btn-primary" (click)="modal.dismiss('')">
+            {{ isYesNo ? 'No' : 'Close' }}
+        </button>     
+    </div>
+</ng-template>

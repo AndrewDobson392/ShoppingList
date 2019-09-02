@@ -1,0 +1,19 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+        {{ isEdit === true ? 'Edit Item' : 'Add Item' }}
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="ipItemText">Item Text</label>
+            <input id="ipItemText" class="form-control" [(ngModel)]="editText">
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="modal.close('')">Save</button>
+        <button type="button" class="btn btn-primary" (click)="modal.dismiss('')">Cancel</button>
+    </div>
+</ng-template>
+<button type="button" class="btn btn-primary btn-space" (click)="openEditDialogue(content)">
+    {{ isEdit === true ? 'Edit Item' : 'Add Item' }}
+</button>
+<app-message-box></app-message-box>

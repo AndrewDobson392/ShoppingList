@@ -1,0 +1,55 @@
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col-sm-6'>
+            <h4>Current List</h4>
+            <div class='row no-gutters'>
+                <div class="col-sm-10">
+                    <div class="shopping-list-container">
+                        <div *ngFor="let listItem of currentList.items()">
+                            <div (click)="setRow(listItem)" class="list-item"
+                                [ngClass]="{'highlight': selectedItem.ItemID === listItem.ItemID  && selectedItem.InCurrentList}">
+                                {{listItem.ItemName}}
+                            </div>
+                        </div>
+                    </div>
+                    <app-edit-item [isEdit]="true" (saved)="onEditedItemSaved($event)" [editItem]="selectedItem">
+                    </app-edit-item>
+                    <app-edit-item [isEdit]="false" (saved)="onItemAdded($event)" [editItem]="selectedItem">
+                    </app-edit-item>
+                    <button type="button" class="btn btn-primary" (click)="removeItem()">Remove Item</button>
+                </div>
+                <div class="col-sm-2">
+                    <div>
+                        <button type="button" class="btn btn-primary" (click)="moveItemUp()">/\</button>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary" (click)="moveItemDown()">\/</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='col-sm-6'>
+            <h4>Previous Items</h4>
+            <div class='row no-gutters'>
+                <div class="col-sm-10">
+                    <div class="shopping-list-container">
+                        <div *ngFor="let listItem of previousList.items()">
+                            <div (click)="setRow(listItem)" class="list-item"
+                                [ngClass]="{'highlight': selectedItem.ItemID === listItem.ItemID && !selectedItem.InCurrentList}">
+                                {{listItem.ItemName}}
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary" (click)="addItemToCurrentList()">
+                        Add To Current List
+                    </button>
+                </div>
+                <div class="col-sm-2"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-message-box></app-message-box>

@@ -1,20 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ShoppingListComponentComponent } from './components/shopping-list-component/shopping-list-component.component';
-import { ListItem } from  './models/list-item';
-
+import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
+import { EdititemComponent } from './components/edit-item/edit-item.component';
+import { MessageBoxComponent } from './components/message-box/message-box.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShoppingListComponentComponent
+    ShoppingListComponent,
+    EdititemComponent,
+    MessageBoxComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

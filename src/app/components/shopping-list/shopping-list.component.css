@@ -1,0 +1,13 @@
+.highlight{ background-color: lightskyblue }
+.shopping-list-container{
+    border:1px;
+    border-style:solid;
+    height:300px;
+    border-color:black;
+    margin-bottom:2px;
+    padding:2px
+}
+
+.list-item{
+    cursor: pointer;
+}

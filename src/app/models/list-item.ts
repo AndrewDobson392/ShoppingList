@@ -1,7 +1,12 @@
 export class ListItem {
     ItemID: number;
     ItemName: string;
-    ListID: number;
+    InCurrentList: boolean;
     HighPriority: boolean;
-    Index: number;
+   
+    constructor(itemName:string, inCurrentList: boolean, itemId: number){
+        this.ItemName = itemName;
+        this.InCurrentList = inCurrentList;
+        this.ItemID = itemId;
+    }
 }
